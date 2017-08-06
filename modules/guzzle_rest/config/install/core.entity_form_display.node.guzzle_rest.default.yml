@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.guzzle_rest.field_guzzle_endpoint_url
     - field.field.node.guzzle_rest.field_guzzle_raw_headers
     - field.field.node.guzzle_rest.field_guzzle_request_method
+    - field.field.node.guzzle_rest.body
     - node.type.guzzle_rest
   module:
     - link
@@ -65,3 +66,4 @@ hidden:
   promote: true
   sticky: true
   uid: true
+  body: true
