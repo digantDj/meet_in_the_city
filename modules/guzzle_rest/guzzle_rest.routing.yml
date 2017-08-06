@@ -1,0 +1,7 @@
+guzzle_rest.content:
+  path: '/first'
+  defaults:
+    _controller: 'Drupal\guzzle_rest\Controller\FirstController::content'
+    _title: 'Hello world'
+  requirements:
+    _permission: 'access content'
