@@ -1,7 +1,7 @@
 <?php
 
 namespace Drupal\meetupdrupal8\Plugin\Block;
-use Drupal\meetupdrupal8\Http\MeetupGuzzleHttp;
+use Drupal\meetupdrupal8\Http\GuzzleDrupalHttp;
 use Drupal\Core\Block\BlockBase;
 
 /**
@@ -19,7 +19,7 @@ class CitiesBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $check = new MeetupGuzzleHttp();
+    $check = new GuzzleDrupalHttp();
     // Function call to retrieve cities
     $response = $check->performRequest("https://api.meetup.com/2/cities");
     
