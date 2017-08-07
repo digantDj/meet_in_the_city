@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\guzzle_rest\Http\GuzzleDrupalHttp;
+
+/** 
+ * Function to retrieve REST fields and perform Guzzle HTTP REST request 
+ * and return output JSON.
+ * 
+ * @param Request Endpoint URL : External REST Endpoint URL to perform HTTP request
+ * @param Request Method : GET, POST, PUT, DELETE and PATCH
+ * @param Raw Headers: Application Header Key/Value pairs as a paragraph like "accept: application/json"
+ * @param Payload Data: Key/Value payload data sent for POST, PUT, PATCH
+ * @return JSON output from the endpoint request
+ **/
+
+function guzzle_rest_preprocess_node__guzzle_rest(&$variables){
+  
+  // Retrieve node from variables
+  $node = $variables['elements']['#node'];
+  
+  // Retrieve node fields to perform REST request
+  $endpoint_url = $node->get('field_guzzle_endpoint_url')->uri;
+  $request_method = $node->get('field_guzzle_request_method')->value;
+  $raw_headers = $node->get('field_guzzle_raw_headers')->value;
+  $payload_data = $node->get('field_guzzle_data_payload')->value;
+  
+  // Perform GuzzleDrupalHttp request
+  $check = new GuzzleDrupalHttp();
+  // Function call to retrieve cities
+  $response = $check->performRequest($endpoint_url,$request_method,$raw_headers,$payload_data);
+  $contents = (string) $response->getBody();
+  print_r($contents);
+  die();
+}
