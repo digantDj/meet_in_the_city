@@ -1,7 +1,7 @@
 <?php
 
-/* core/themes/classy/templates/form/checkboxes.html.twig */
-class __TwigTemplate_ea28b6921dac7415fcfa5f685375d5e8e5b4fe3f890a47d52295e93aa88033e0 extends Twig_Template
+/* core/themes/classy/templates/form/confirm-form.html.twig */
+class __TwigTemplate_f92e2d0681a2db7aa5afa43722518dfacc6ef324b646995df989015dc3d56619 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -39,18 +39,15 @@ class __TwigTemplate_ea28b6921dac7415fcfa5f685375d5e8e5b4fe3f890a47d52295e93aa88
             throw $e;
         }
 
-        // line 15
-        echo "<div";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, $this->getAttribute((isset($context["attributes"]) ? $context["attributes"] : null), "addClass", array(0 => "form-checkboxes"), "method"), "html", null, true));
-        echo ">";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["children"]) ? $context["children"] : null), "html", null, true));
-        echo "</div>
+        // line 13
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["form"]) ? $context["form"] : null), "html", null, true));
+        echo "
 ";
     }
 
     public function getTemplateName()
     {
-        return "core/themes/classy/templates/form/checkboxes.html.twig";
+        return "core/themes/classy/templates/form/confirm-form.html.twig";
     }
 
     public function isTraitable()
@@ -60,7 +57,7 @@ class __TwigTemplate_ea28b6921dac7415fcfa5f685375d5e8e5b4fe3f890a47d52295e93aa88
 
     public function getDebugInfo()
     {
-        return array (  43 => 15,);
+        return array (  43 => 13,);
     }
 
     public function getSource()
@@ -68,18 +65,16 @@ class __TwigTemplate_ea28b6921dac7415fcfa5f685375d5e8e5b4fe3f890a47d52295e93aa88
         return "{#
 /**
  * @file
- * Theme override for a 'checkboxes' #type form element.
+ * Theme override for confirm form.
  *
- * Available variables
- * - attributes: A list of HTML attributes for the wrapper element.
- * - children: The rendered checkboxes.
+ * By default this does not alter the appearance of a form at all,
+ * but is provided as a convenience for themers.
  *
- * @see template_preprocess_checkboxes()
+ * Available variables:
+ * - form: The confirm form.
  */
- @todo: remove this file once https://www.drupal.org/node/1819284 is resolved.
- This is identical to core/modules/system/templates/container.html.twig
 #}
-<div{{ attributes.addClass('form-checkboxes') }}>{{ children }}</div>
+{{ form }}
 ";
     }
 }

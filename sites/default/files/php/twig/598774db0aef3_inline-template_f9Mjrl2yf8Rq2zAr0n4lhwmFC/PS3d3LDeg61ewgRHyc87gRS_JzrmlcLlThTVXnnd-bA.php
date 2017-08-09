@@ -1,7 +1,7 @@
 <?php
 
-/* {# inline_template_start #}<div class="field-plugin-summary">{{ summary|safe_join("<br />") }}</div> */
-class __TwigTemplate_f821c77039c217f90bf7a8f976486c27a1fbd3d077f048bd0be538f78a56fbe7 extends Twig_Template
+/* {# inline_template_start #}{{ items | safe_join(separator) }} */
+class __TwigTemplate_6a27047eeba00af1c60ff2f4c59e9e614903a38f7c90d62ed5441a2edb82b31b extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -40,14 +40,12 @@ class __TwigTemplate_f821c77039c217f90bf7a8f976486c27a1fbd3d077f048bd0be538f78a5
         }
 
         // line 1
-        echo "<div class=\"field-plugin-summary\">";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->renderVar($this->env->getExtension('drupal_core')->safeJoin($this->env, (isset($context["summary"]) ? $context["summary"] : null), "<br />")));
-        echo "</div>";
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->renderVar($this->env->getExtension('drupal_core')->safeJoin($this->env, (isset($context["items"]) ? $context["items"] : null), (isset($context["separator"]) ? $context["separator"] : null))));
     }
 
     public function getTemplateName()
     {
-        return "{# inline_template_start #}<div class=\"field-plugin-summary\">{{ summary|safe_join(\"<br />\") }}</div>";
+        return "{# inline_template_start #}{{ items | safe_join(separator) }}";
     }
 
     public function isTraitable()
@@ -62,6 +60,6 @@ class __TwigTemplate_f821c77039c217f90bf7a8f976486c27a1fbd3d077f048bd0be538f78a5
 
     public function getSource()
     {
-        return "{# inline_template_start #}<div class=\"field-plugin-summary\">{{ summary|safe_join(\"<br />\") }}</div>";
+        return "{# inline_template_start #}{{ items | safe_join(separator) }}";
     }
 }

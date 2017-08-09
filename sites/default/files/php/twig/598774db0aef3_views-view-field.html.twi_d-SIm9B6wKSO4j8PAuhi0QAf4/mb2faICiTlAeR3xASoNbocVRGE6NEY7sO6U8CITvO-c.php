@@ -1,7 +1,7 @@
 <?php
 
-/* core/themes/classy/templates/navigation/vertical-tabs.html.twig */
-class __TwigTemplate_ec242b0a882d1e4c88fbdc941c3b06d5904b5cfd567e2f081eb1e41b11aaa461 extends Twig_Template
+/* core/themes/stable/templates/views/views-view-field.html.twig */
+class __TwigTemplate_7fc224c98074aeb4d583b88b838c450f562cc06cafe650f751eafe7f888a24bb extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -39,18 +39,13 @@ class __TwigTemplate_ec242b0a882d1e4c88fbdc941c3b06d5904b5cfd567e2f081eb1e41b11a
             throw $e;
         }
 
-        // line 13
-        echo "<div";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, $this->getAttribute((isset($context["attributes"]) ? $context["attributes"] : null), "setAttribute", array(0 => "data-vertical-tabs-panes", 1 => true), "method"), "html", null, true));
-        echo ">";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["children"]) ? $context["children"] : null), "html", null, true));
-        echo "</div>
-";
+        // line 21
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["output"]) ? $context["output"] : null), "html", null, true));
     }
 
     public function getTemplateName()
     {
-        return "core/themes/classy/templates/navigation/vertical-tabs.html.twig";
+        return "core/themes/stable/templates/views/views-view-field.html.twig";
     }
 
     public function isTraitable()
@@ -60,7 +55,7 @@ class __TwigTemplate_ec242b0a882d1e4c88fbdc941c3b06d5904b5cfd567e2f081eb1e41b11a
 
     public function getDebugInfo()
     {
-        return array (  43 => 13,);
+        return array (  43 => 21,);
     }
 
     public function getSource()
@@ -68,16 +63,24 @@ class __TwigTemplate_ec242b0a882d1e4c88fbdc941c3b06d5904b5cfd567e2f081eb1e41b11a
         return "{#
 /**
  * @file
- * Theme override for vertical tabs.
+ * Theme override for a single field in a view.
  *
- * Available variables
- * - attributes: A list of HTML attributes for the wrapper element.
- * - children: The rendered tabs.
+ * Available variables:
+ * - view: The view that the field belongs to.
+ * - field: The field handler that can process the input.
+ * - row: The raw result of the database query that generated this field.
+ * - output: The processed output that will normally be used.
  *
- * @see template_preprocess_vertical_tabs()
+ * When fetching output from the row this construct should be used:
+ * data = row[field.field_alias]
+ *
+ * The above will guarantee that you'll always get the correct data, regardless
+ * of any changes in the aliasing that might happen if the view is modified.
+ *
+ * @see template_preprocess_views_view_field()
  */
 #}
-<div{{ attributes.setAttribute('data-vertical-tabs-panes', TRUE) }}>{{ children }}</div>
+{{ output -}}
 ";
     }
 }

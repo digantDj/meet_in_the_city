@@ -23,7 +23,7 @@ function guzzle_rest_preprocess_node__guzzle_rest(&$variables){
     $request_method = $node->get('field_guzzle_request_method')->value;
     $raw_headers = $node->get('field_guzzle_raw_headers')->value;
     $payload_data = $node->get('field_guzzle_data_payload')->value;
-    
+
     // Perform GuzzleDrupalHttp request
     $check = new GuzzleDrupalHttp();
     // Function call to retrieve cities

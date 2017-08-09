@@ -28,13 +28,15 @@ class GuzzleDrupalHttp {
   public function performRequest($requestUrl, $requestMethod = 'GET', $requestHeaders = '', $requestPayloadData = '') {
     $client = new \GuzzleHttp\Client();
     try {
+      foreach(explode("\r\n", $requestHeaders) as $row) {
+          if(preg_match('/(.*?): (.*)/', $row, $matches)) {
+              $headers[$matches[1]] = $matches[2];
+          }
+      }
       switch($requestMethod){
         case 'GET':
           $res = $client->get($requestUrl, ['http_errors' => false,
-          'headers' => [
-            'Accept'     => 'application/json',
-            'X-Foo'      => ['Bar', 'Baz']
-            ]
+          'headers' => $headers
           ]);
           break;
         case 'POST':

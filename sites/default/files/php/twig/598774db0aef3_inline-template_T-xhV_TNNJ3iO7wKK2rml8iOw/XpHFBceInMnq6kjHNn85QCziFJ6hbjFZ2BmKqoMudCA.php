@@ -1,7 +1,7 @@
 <?php
 
-/* core/themes/classy/templates/form/radios.html.twig */
-class __TwigTemplate_6f519c213a48c9c248c3ca6c38b4dca4dac8ea7bc4ea7d1d997cc55e292e22a8 extends Twig_Template
+/* {# inline_template_start #}{{ value|nl2br }} */
+class __TwigTemplate_d3e79bd6029fd1ab1d50dd676e1f6555a2880e7bdc0733b6b806b540b4a45fd4 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -16,13 +16,13 @@ class __TwigTemplate_6f519c213a48c9c248c3ca6c38b4dca4dac8ea7bc4ea7d1d997cc55e292
     protected function doDisplay(array $context, array $blocks = array())
     {
         $tags = array();
-        $filters = array();
+        $filters = array("nl2br" => 1);
         $functions = array();
 
         try {
             $this->env->getExtension('sandbox')->checkSecurity(
                 array(),
-                array(),
+                array('nl2br'),
                 array()
             );
         } catch (Twig_Sandbox_SecurityError $e) {
@@ -39,18 +39,13 @@ class __TwigTemplate_6f519c213a48c9c248c3ca6c38b4dca4dac8ea7bc4ea7d1d997cc55e292
             throw $e;
         }
 
-        // line 13
-        echo "<div";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, $this->getAttribute((isset($context["attributes"]) ? $context["attributes"] : null), "addClass", array(0 => "form-radios"), "method"), "html", null, true));
-        echo ">";
-        echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["children"]) ? $context["children"] : null), "html", null, true));
-        echo "</div>
-";
+        // line 1
+        echo $this->env->getExtension('sandbox')->ensureToStringAllowed(nl2br($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["value"]) ? $context["value"] : null), "html", null, true)));
     }
 
     public function getTemplateName()
     {
-        return "core/themes/classy/templates/form/radios.html.twig";
+        return "{# inline_template_start #}{{ value|nl2br }}";
     }
 
     public function isTraitable()
@@ -60,24 +55,11 @@ class __TwigTemplate_6f519c213a48c9c248c3ca6c38b4dca4dac8ea7bc4ea7d1d997cc55e292
 
     public function getDebugInfo()
     {
-        return array (  43 => 13,);
+        return array (  43 => 1,);
     }
 
     public function getSource()
     {
-        return "{#
-/**
- * @file
- * Theme override for a 'radios' #type form element.
- *
- * Available variables
- * - attributes: A list of HTML attributes for the wrapper element.
- * - children: The rendered radios.
- *
- * @see template_preprocess_radios()
- */
-#}
-<div{{ attributes.addClass('form-radios') }}>{{ children }}</div>
-";
+        return "{# inline_template_start #}{{ value|nl2br }}";
     }
 }
