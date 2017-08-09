@@ -42,10 +42,7 @@ class GuzzleDrupalHttp {
         case 'POST':
           $res = $client->post($requestUrl, [
               'http_errors' => false,
-              'headers' => [
-                'Accept'     => 'application/json',
-                'X-Foo'      => ['Bar', 'Baz']
-              ],
+              'headers' => $headers,
               'body' => [
                   'field' => 'abc',
                   'other_field' => '123',
