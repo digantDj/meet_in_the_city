@@ -28,26 +28,37 @@ class GuzzleDrupalHttp {
   public function performRequest($requestUrl, $requestMethod = 'GET', $requestHeaders = '', $requestPayloadData = '') {
     $client = new \GuzzleHttp\Client();
     try {
+      
+      // Massage $requestHeaders to generate $headers array, ready for REST call
       foreach(explode("\r\n", $requestHeaders) as $row) {
           if(preg_match('/(.*?): (.*)/', $row, $matches)) {
               $headers[$matches[1]] = $matches[2];
           }
       }
+      
+      if($requestPayloadData != ''){
+        // Massage $requestPayloadData to generate $body array, ready for REST call
+        foreach(explode("\r\n", $requestPayloadData) as $row) {
+            if(preg_match('/(.*?): (.*)/', $row, $matches)) {
+                $body[$matches[1]] = $matches[2];
+            }
+        }
+      }else{
+        $body = '';
+      }
+      
       switch($requestMethod){
         case 'GET':
-          $res = $client->get($requestUrl, ['http_errors' => false,
-          'headers' => $headers
+          $res = $client->get($requestUrl, [
+            'http_errors' => false,
+            'headers' => $headers
           ]);
           break;
         case 'POST':
           $res = $client->post($requestUrl, [
-              'http_errors' => false,
-              'headers' => $headers,
-              'body' => [
-                  'field' => 'abc',
-                  'other_field' => '123',
-                  'file_name' => fopen('/path/to/file', 'r')
-              ]
+            'http_errors' => false,
+            'headers' => $headers,
+            'form_params' => $body
           ]);
           break;
         default:
